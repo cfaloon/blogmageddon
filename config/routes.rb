@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :comments
   resources :posts # sets up 7 different routes!!!
-  root 'practice#index'
+  root 'posts#index'
   get 'index' => 'practice#index'
   post 'index' => 'practice#index'
   get 'about' => 'practice#about'

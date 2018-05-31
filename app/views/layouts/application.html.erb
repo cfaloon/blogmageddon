@@ -10,6 +10,18 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-inverse">
+      <%= link_to 'Blogmageddon', root_path, class: 'navbar-brand' %>
+
+      <div class="pull-right" style="padding-top: 8px;">
+        <% if user_signed_in? %>
+          <%= image_tag asset_path(current_user.avatar), class: 'avatar', 'data-whatever': :no %>
+          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'btn btn-danger' %>
+        <% end %>
+      </div>
+    </nav>
+
+
     <div class="container">
       <%= yield %>
     </div>
