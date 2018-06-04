@@ -4,7 +4,12 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.all.page(params[:page])
+  end
+
+  def user_posts
+    @user = User.find_by(username: params[:name])
+    @posts = @user.posts.page(params[:page])
   end
 
   # GET /posts/1

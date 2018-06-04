@@ -1,13 +1,11 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Posts</h1>
+<h1>Posts by <%= @user.username %></h1>
 
 <div class="row">
   <% @posts.each do |post| %>
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <%= post.title %> by <%= link_to post.user.username, user_posts_path(name: post.user.username) %>
+          <%= post.title %> by <%= post.user.username %>
         </div>
         <div class="panel-body">
           <%= post.blog_entry %>
@@ -25,8 +23,6 @@
     </div>
   <% end %>
 </div>
-
-<br>
 
 <div class="row">
   <div class="col-md-5">
